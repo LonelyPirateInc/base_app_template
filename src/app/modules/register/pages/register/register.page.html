@@ -1,0 +1,116 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <form [formGroup]="registerationForm">
+        <div formGroupName="facility">
+            <ion-list>
+                <ion-item>
+                  <ion-label position="floating"> name</ion-label>
+                  <ion-input type="text" formControlName="name"></ion-input>
+                </ion-item>
+          
+                <ion-item>
+                    <ion-label position="floating"> streetNumber</ion-label>
+                    <ion-input type="number" formControlName="streetNumber"></ion-input>
+                  </ion-item>
+    
+                  <ion-item>
+                      <ion-label position="floating"> streetName</ion-label>
+                      <ion-input type="text" formControlName="streetName"></ion-input>
+                    </ion-item>
+    
+                    <ion-item>
+                        <ion-label position="floating"> stateProvince</ion-label>
+                        <ion-input type="text" formControlName="stateProvince"></ion-input>
+                      </ion-item>
+    
+                      <ion-item>
+                          <ion-label position="floating"> country</ion-label>
+                          <ion-input type="text" formControlName="country"></ion-input>
+                        </ion-item>
+    
+    
+                      <ion-item>
+                          <ion-label position="floating"> phone</ion-label>
+                          <ion-input type="tel" formControlName="phone"></ion-input>
+                        </ion-item>
+    
+                        <ion-item>
+                            <ion-label position="floating"> email</ion-label>
+                            <ion-input type="email" formControlName="email"></ion-input>
+                          </ion-item>
+    
+
+            </ion-list>
+        </div>
+
+        <div formGroupName="user">
+            <ion-list>
+
+                <ion-item>
+                    <ion-label position="floating">First Name </ion-label>
+                    <ion-input type="text" formControlName="firstName"></ion-input>
+                  </ion-item>
+
+                  <ion-item>
+                      <ion-label position="floating">Last Name </ion-label>
+                      <ion-input type="text" formControlName="lastName"></ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label position="floating">Email </ion-label>
+                        <ion-input type="text" formControlName="email"></ion-input>
+                      </ion-item>
+
+                <ion-item>
+                    <ion-label position="floating">Password </ion-label>
+                    <ion-input type="password" formControlName="password"></ion-input>
+                  </ion-item>
+
+                <ion-item>
+                  <ion-label position="floating"> Phone</ion-label>
+                  <ion-input type="tel" formControlName="phone"></ion-input>
+                </ion-item>
+          
+                <ion-item>
+                    <ion-label position="floating"> Country</ion-label>
+                    <ion-input type="text" formControlName="country"></ion-input>
+                  </ion-item>
+    
+                  <ion-item>
+                      <ion-label position="floating"> StateProvince</ion-label>
+                      <ion-input type="text" formControlName="stateProvince"></ion-input>
+                    </ion-item>
+    
+                    <ion-item>
+                        <ion-label position="floating"> City</ion-label>
+                        <ion-input type="text" formControlName="city"></ion-input>
+                      </ion-item>
+    
+                      <ion-item>
+                          <ion-label position="floating"> StreetName</ion-label>
+                          <ion-input type="text" formControlName="streetName"></ion-input>
+                        </ion-item>
+    
+    
+                      <ion-item>
+                          <ion-label position="floating"> StreetNumber</ion-label>
+                          <ion-input type="text" formControlName="streetNumber"></ion-input>
+                        </ion-item>
+    
+                        <ion-item>
+                            <ion-label position="floating"> PostalCode</ion-label>
+                            <ion-input type="text" formControlName="postalCode"></ion-input>
+                          </ion-item>
+            </ion-list>
+        </div>
+
+    </form>
+  
+  
+      <ion-button fill="solid" expand="block" color="dark" (click)="register()">Register</ion-button>
+</ion-content>
