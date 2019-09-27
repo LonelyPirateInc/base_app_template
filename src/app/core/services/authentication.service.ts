@@ -7,6 +7,8 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { RegisterFacilityDto } from '@shared/dtos/register-facility.dto';
 import { UserLoggedInResponse } from '@shared/models/login';
+import { AngularFirestore } from '@angular/fire/firestore';
+
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
@@ -16,7 +18,8 @@ export class AuthenticationService {
     private FACILITY_URL = '/facility';
 
     constructor(private http: HttpClient,
-                public configurationService: ConfigurationService) {
+                public configurationService: ConfigurationService,
+                private firestore: AngularFirestore) {
         this.currentUserSubject = new BehaviorSubject<UserLoggedInResponse>(JSON.parse(localStorage.getItem(LocalStorageItemKeys.CURRENT_USER)));
         this.currentUser = this.currentUserSubject.asObservable();
     }
@@ -25,7 +28,7 @@ export class AuthenticationService {
         return this.currentUserSubject.value;
     }
 
-    login(loginDto: LoginUserDto) {
+    login(loginDto: LoginUserDto): Observable<UserLoggedInResponse> {
         return this.http.post<UserLoggedInResponse>(`${this.configurationService.config.BASE_URL}${this.AUTH_URL}/login`, loginDto)
             .pipe(map(user => {
                 // login successful if there's a jwt token in the response
